@@ -1,0 +1,1198 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kushagra Thakral | Product Manager & Analytics Professional</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        /* General Body and Background Styling */
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0a192f;
+            color: #a8b2d1;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: radial-gradient(circle at top right, rgba(100, 255, 218, 0.05), transparent 40%),
+                radial-gradient(circle at bottom left, rgba(100, 255, 218, 0.05), transparent 50%);
+            z-index: -1;
+            animation: moveGradient 20s infinite alternate linear;
+            transform-origin: center center;
+        }
+
+        @keyframes moveGradient {
+            0% {
+                transform: translate(0, 0) scale(1);
+            }
+
+            100% {
+                transform: translate(20px, -20px) scale(1.1);
+            }
+        }
+
+        /* Typography and Color Palette */
+        .font-mono {
+            font-family: 'Fira Code', monospace;
+        }
+
+        .text-light-slate {
+            color: #e6f1ff;
+        }
+
+        .text-slate {
+            color: #a8b2d1;
+        }
+
+        .text-green {
+            color: #64ffda;
+        }
+
+        .bg-navy {
+            background-color: #0a192f;
+        }
+
+        .bg-light-navy {
+            background-color: #112240;
+        }
+        
+        /* Skill Item Styling */
+        .skill-item {
+            display: flex;
+            align-items: center;
+            background-color: #0a192f;
+            color: #ccd6f6;
+            padding: 8px 12px;
+            border-radius: 6px;
+            font-family: 'Fira Code', monospace;
+            font-size: 0.9rem;
+            transition: all 0.2s ease-in-out;
+        }
+
+        .skill-item:hover {
+            background-color: #64ffda1a;
+            color: #64ffda;
+        }
+
+        .skill-item svg,
+        .skill-item img {
+            width: 20px;
+            height: 20px;
+            margin-right: 10px;
+        }
+
+        /* Typing Animation Cursor */
+        .cursor {
+            display: inline-block;
+            width: 3px;
+            background-color: #64ffda;
+            animation: blink 1s infinite;
+        }
+
+        .cursor.typing {
+            animation: none;
+        }
+
+        @keyframes blink {
+            0% { background-color: #64ffda; }
+            49% { background-color: #64ffda; }
+            50% { background-color: transparent; }
+            99% { background-color: transparent; }
+            100% { background-color: #64ffda; }
+        }
+
+        /* Section Fade-in Animation */
+        .section {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+            padding-top: 100px;
+            padding-bottom: 100px;
+        }
+
+        .section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Navigation and Social Links */
+        .nav-link {
+            position: relative;
+            transition: color 0.3s ease;
+        }
+
+        .nav-link:hover {
+            color: #64ffda;
+        }
+
+        .social-icon:hover {
+            transform: translateY(-3px);
+            color: #64ffda;
+        }
+
+        /* Section Heading Styling */
+        .section-heading {
+            display: flex;
+            align-items: center;
+            position: relative;
+            margin: 10px 0 40px;
+            width: 100%;
+            white-space: nowrap;
+        }
+
+        .section-heading::after {
+            content: "";
+            display: block;
+            position: relative;
+            top: 2px;
+            width: 300px;
+            height: 1px;
+            margin-left: 20px;
+            background-color: #233554;
+        }
+        
+        /* Custom List Styling */
+        .custom-list li {
+            position: relative;
+            padding-left: 30px;
+            margin-bottom: 10px;
+        }
+
+        .custom-list li::before {
+            content: "▹";
+            position: absolute;
+            left: 0px;
+            color: #64ffda;
+        }
+        
+        /* Card Styling */
+        .card-base {
+            background-color: #112240;
+            transition: all 0.25s cubic-bezier(0.645, 0.045, 0.355, 1);
+            box-shadow: 0 10px 30px -15px rgba(2, 12, 27, 0.7);
+        }
+
+        .card-base:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 0 15px 0 rgba(100, 255, 218, 0.1);
+        }
+
+        /* Experience Tabs Styling */
+        .tab-btn {
+            padding: 10px 20px;
+            border: none;
+            background: transparent;
+            cursor: pointer;
+            text-align: left;
+            width: 100%;
+            color: #a8b2d1;
+            border-left: 2px solid #233554;
+            transition: all 0.3s ease;
+        }
+
+        .tab-btn:hover {
+            background-color: #64ffda1a;
+            color: #64ffda;
+        }
+
+        .tab-btn.tab-active {
+            color: #64ffda;
+            background-color: #64ffda1a;
+            border-left-color: #64ffda;
+        }
+
+        .tab-content {
+            display: none;
+            animation: fadeIn 0.5s;
+        }
+
+        .tab-content.active {
+            display: block;
+            animation: zoomIn 0.4s ease-out;
+        }
+
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+        @keyframes zoomIn { from { opacity: 0; transform: scale(0.97); } to { opacity: 1; transform: scale(1); } }
+
+        /* Education Timeline Styling */
+        .timeline-container {
+            position: relative;
+            padding-left: 30px;
+        }
+
+        .timeline-line {
+            position: absolute;
+            left: 10px;
+            top: 10px;
+            bottom: 10px;
+            width: 2px;
+            background-color: #233554;
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 50px;
+        }
+
+        .timeline-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .timeline-dot {
+            position: absolute;
+            left: -24px;
+            top: 5px;
+            height: 12px;
+            width: 12px;
+            background-color: #64ffda;
+            border-radius: 50%;
+            border: 2px solid #0a192f;
+        }
+
+        /* Button Hover Effects */
+        .resume-btn,
+        .contact-btn,
+        .show-more-btn {
+            background-image: linear-gradient(to right, #64ffda, #64ffda);
+            background-size: 0% 100%;
+            background-repeat: no-repeat;
+            transition: background-size 0.4s ease-in-out, color 0.4s ease-in-out;
+        }
+
+        .resume-btn:hover,
+        .contact-btn:hover,
+        .show-more-btn:hover {
+            background-size: 100% 100%;
+            color: #0a192f !important;
+        }
+
+        /* Header and Modal Styling */
+        #header {
+            backdrop-filter: blur(10px);
+        }
+
+        #contact-modal {
+            transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
+        }
+
+        #contact-modal>div {
+            transition: transform 0.3s ease-in-out;
+            transform: scale(0.95);
+        }
+
+        #contact-modal.visible>div {
+            transform: scale(1);
+        }
+
+        /* Project and Certification Grid Styling */
+        .project-grid .card-base,
+        .cert-grid .card-base {
+            transition: all 0.3s ease-in-out;
+        }
+
+        .project-more,
+        .cert-more {
+            display: none;
+        }
+        
+        /* Responsive Fix for Mobile Experience Tabs */
+        @media (max-width: 767px) {
+            .experience-wrapper {
+                flex-direction: column;
+            }
+             #experience .tabs-container {
+                display: flex;
+                flex-direction: row;
+                overflow-x: auto;
+                border-bottom: 2px solid #233554;
+                border-left: none;
+                width: 100%;
+             }
+             #experience .tab-list {
+                display: flex;
+                flex-direction: row;
+             }
+             #experience .tab-btn {
+                border-left: none;
+                border-bottom: 2px solid transparent;
+                text-align: center;
+                white-space: nowrap;
+             }
+             #experience .tab-btn.tab-active {
+                border-left: none;
+                border-bottom-color: #64ffda;
+             }
+        }
+    </style>
+</head>
+
+<body class="leading-relaxed">
+
+    <!-- ===== HEADER & NAVIGATION ===== -->
+    <header id="header" class="fixed top-0 left-0 right-0 z-50 bg-navy/80 transition-transform duration-300 ease-in-out shadow-md">
+        <div class="container mx-auto px-8 sm:px-12 py-4">
+            <nav class="flex justify-end items-center">
+                <!-- Desktop Navigation -->
+                <div class="hidden md:flex items-center space-x-6">
+                    <a href="#about" class="nav-link font-mono"><span class="text-green">01.</span> About</a>
+                    <a href="#experience" class="nav-link font-mono"><span class="text-green">02.</span> Experience</a>
+                    <a href="#education" class="nav-link font-mono"><span class="text-green">03.</span> Education</a>
+                    <a href="#projects" class="nav-link font-mono"><span class="text-green">04.</span> Work</a>
+<!--                    <a href="#skills" class="nav-link font-mono"><span class="text-green">05.</span> Skills</a> -->
+                    <a href="#certifications" class="nav-link font-mono"><span class="text-green">05.</span> Certifications</a>
+                    <a href="#contact" class="nav-link font-mono"><span class="text-green">06.</span> Contact</a>
+                    <a href="resume.pdf" target="_blank" rel="noopener noreferrer" class="resume-btn font-mono border border-green text-green px-4 py-2 rounded">Resume</a>
+                </div>
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden ml-auto">
+                    <button id="menu-btn" class="text-3xl text-green">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                </div>
+            </nav>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-light-navy">
+            <a href="#about" class="block text-center py-3 px-4 font-mono text-lg hover:text-green">About</a>
+            <a href="#experience" class="block text-center py-3 px-4 font-mono text-lg hover:text-green">Experience</a>
+            <a href="#education" class="block text-center py-3 px-4 font-mono text-lg hover:text-green">Education</a>
+            <a href="#projects" class="block text-center py-3 px-4 font-mono text-lg hover:text-green">Work</a>
+            <a href="#skills" class="block text-center py-3 px-4 font-mono text-lg hover:text-green">Skills</a>
+            <a href="#certifications" class="block text-center py-3 px-4 font-mono text-lg hover:text-green">Certifications</a>
+            <a href="#contact" class="block text-center py-3 px-4 font-mono text-lg hover:text-green">Contact</a>
+            <a href="resume.pdf" target="_blank" rel="noopener noreferrer" class="block text-center py-4 px-4"><span class="resume-btn font-mono border border-green text-green px-6 py-3 rounded">Resume</span></a>
+        </div>
+    </header>
+
+    <!-- ===== FIXED SOCIAL & EMAIL SIDEBARS ===== -->
+    <!-- Social Links Sidebar -->
+    <div class="hidden md:flex flex-col fixed bottom-0 left-4 lg:left-8 items-center space-y-6">
+        <a href="https://www.linkedin.com/in/kushthakral/" target="_blank" aria-label="LinkedIn" class="social-icon text-2xl text-slate transition-all duration-300"><i class="fab fa-linkedin"></i></a>
+        <a href="https://github.com/Kush-Thakral" target="_blank" aria-label="GitHub" class="social-icon text-2xl text-slate transition-all duration-300"><i class="fab fa-github"></i></a>
+        <div class="w-px h-24 bg-slate"></div>
+    </div>
+    
+    <!-- Email Sidebar -->
+    <div class="hidden md:flex flex-col fixed bottom-0 right-4 lg:right-8 items-center space-y-20">
+        <a href="mailto:kthakral@ch.iitr.ac.in" class="social-icon text-slate transition-all duration-300 font-mono" style="writing-mode: vertical-rl;">
+            kthakral@ch.iitr.ac.in
+        </a>
+        <div class="w-px h-24 bg-slate"></div>
+    </div>
+
+    <main class="container mx-auto px-6 sm:px-10 md:px-20 lg:px-40">
+
+        <!-- ===== HERO & ABOUT SECTION (01) ===== -->
+        <section id="about" class="min-h-screen flex items-center justify-start text-left section">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
+                <div>
+                    <h1 class="text-lg font-mono text-green mb-4">Hi, my name is</h1>
+                    <h2 class="text-4xl sm:text-5xl lg:text-7xl font-bold text-light-slate">Kushagra Thakral.</h2>
+                    <h3 class="text-3xl sm:text-5xl lg:text-6xl font-bold text-slate mt-2">I <span id="typed-text" class="text-light-slate"></span><span class="cursor">&nbsp;</span></h3>
+                    <p class="mt-6 max-w-2xl text-lg">
+                       I'm an <span class="text-green font-semibold">analytics professional</span> passionate about leveraging data to build better products and drive business growth. My journey began at the <span class="text-green">Indian Institute of Technology, Roorkee</span> and led me to a <span class="text-green font-semibold">Product Manager</span> role at <span class="text-green">ICICI Bank</span>, where I honed my skills in <span class="text-green font-semibold">Python, SQL, and Power BI</span> to build <span class="text-green font-semibold">predictive models</span> and deliver actionable insights.
+                    </p>
+                    <div class="mt-8">
+                        <a href="#contact" class="bg-transparent border border-green text-green font-mono text-lg py-4 px-7 rounded-md hover:bg-green/10 transition-all duration-300">
+                            Get In Touch
+                        </a>
+                    </div>
+                </div>
+                <!-- Profile Picture -->
+                <div class="hidden md:flex justify-center items-center mt-12 md:mt-0">
+                     <div class="w-56 h-56 relative group">
+                        <div class="absolute inset-0 border-2 border-green rounded-full z-0 transform translate-x-4 translate-y-4 group-hover:translate-x-2 group-hover:translate-y-2 transition-transform duration-300"></div>
+                        <!-- IMPORTANT: Replace the src below with your image link -->
+                        <img class="absolute inset-0 w-full h-full object-cover rounded-full z-10 filter grayscale hover:grayscale-0 transition-all duration-300" src="https://github.com/Kush-Thakral/portfolio-assets/blob/main/linkedin_photo.jpeg?raw=true" alt="Kushagra Thakral profile picture">
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- ===== EXPERIENCE SECTION (02) ===== -->
+       <section id="experience" class="section">
+           <h2 class="text-3xl font-bold text-light-slate flex items-center section-heading"><span class="text-green font-mono mr-3">02.</span> Where I've Worked</h2>
+           
+           <div class="max-w-4xl mx-auto md:mx-0">
+                <div class="flex flex-col lg:flex-row gap-8 experience-wrapper">
+                   <!-- Tab Buttons -->
+                   <div class="tabs-container flex-shrink-0 lg:w-48 font-mono text-sm">
+                        <div class="tab-list flex-row lg:flex-col overflow-x-auto lg:overflow-x-visible">
+                            <button class="tab-btn tab-active" data-tab="1">ICICI Bank</button>
+                            <button class="tab-btn" data-tab="2">Khan Academy</button>
+                            <button class="tab-btn" data-tab="3">B Aegis Life Science</button>
+                            <button class="tab-btn" data-tab="4">Decodr Solutions</button>
+                            <button class="tab-btn" data-tab="5">Indian Rubber Manufacturers Research Asscn.</button>
+                        </div>
+                   </div>
+                   <!-- Tab Content -->
+                   <div class="tab-content-container relative flex-1 min-w-0">
+                       <div id="tab-1" class="tab-content active">
+                           <h3 class="text-xl font-bold text-light-slate">Product Manager, Analytics <span class="text-green">@ ICICI Bank</span></h3>
+                           <p class="font-mono text-sm mt-1 mb-4">July 2021 - Mar 2023</p>
+                           <ul class="space-y-3 custom-list">
+                               <li>Delivered holistic leads to the sales team by analyzing key product drivers and metrics, contributing to a <span class="text-green font-semibold">~20% YoY increase in deposit growth rate.</span></li>
+                               <li><span class="text-green font-semibold">Led training workshops for 300+ sales members,</span> boosting PowerBI adoption by <span class="text-green font-semibold">40%.</span></li>
+                               <li>Built a <span class="text-green font-semibold">collaborative-filtering recommender system</span> to provide targeted leads, improving conversion rates.</li>
+                               <li>Conceptualized key metrics to categorize newly onboarded clients, increasing net new banking profit by <span class="text-green font-semibold">14% YoY.</span></li>
+                           </ul>
+                           <div class="flex flex-wrap gap-3 mt-6">
+                               <span class="skill-item text-xs">Analytics</span>
+                               <span class="skill-item text-xs">Power BI</span>
+                               <span class="skill-item text-xs">Python</span>
+                               <span class="skill-item text-xs">SQL</span>
+                               <span class="skill-item text-xs">Recommender Systems</span>
+                           </div>
+                       </div>
+                       <div id="tab-2" class="tab-content">
+                           <h3 class="text-xl font-bold text-light-slate">Math Content Expert <span class="text-green">@ Khan Academy</span></h3>
+                           <p class="font-mono text-sm mt-1 mb-4">March 2023 - Jan 2025</p>
+                           <ul class="space-y-3 custom-list">
+                               <li>Developed <span class="text-green font-semibold">50+ educational video content</span> simplifying <span class="text-green font-semibold">advanced mathematical concepts</span> for the official YouTube channel and website.</li>
+                           </ul>
+                           <div class="flex flex-wrap gap-3 mt-6">
+                               <span class="skill-item text-xs">PowerPoint</span>
+                               <span class="skill-item text-xs">Adobe Premiere Pro</span>
+                               <span class="skill-item text-xs">Content Creation</span>
+                           </div>
+                           <div class="mt-6 border-t border-slate/30 pt-4">
+                               <h4 class="font-mono text-sm text-green mb-3">Associated Project:</h4>
+                               <a href="https://www.youtube.com/watch?v=XOLry3IRNyE" target="_blank" rel="noopener noreferrer" class="flex items-center gap-4 bg-navy p-3 rounded-md hover:shadow-lg transition-shadow">
+                                   <img src="https://github.com/Kush-Thakral/portfolio-assets/blob/main/Section_Form_thumbnail.jpg?raw=true" class="rounded w-32 md:w-48" alt="Math Content Project">
+                                   <span class="text-light-slate font-bold">Section Formula</span>
+                               </a>
+                           </div>
+                       </div>
+                       <div id="tab-3" class="tab-content">
+                           <h3 class="text-xl font-bold text-light-slate">AI Research Intern <span class="text-green">@ B Aegis Life Science</span></h3>
+                           <p class="font-mono text-sm mt-1 mb-4">June 2020 - July 2020</p>
+                           <ul class="space-y-3 custom-list">
+                               <li>Developed a <span class="text-green font-semibold">live cough detector</span> that classifies cough sounds from surrounding sounds in real-time.</li>
+                               <li>Converted audio files to <span class="text-green font-semibold">spectrograms</span> and used MFCC techniques to create images for a <span class="text-green font-semibold">CNN classification model.</span></li>
+                           </ul>
+                            <div class="flex flex-wrap gap-3 mt-6">
+                               <span class="skill-item text-xs">Python</span>
+                               <span class="skill-item text-xs">CNN</span>
+                               <span class="skill-item text-xs">JupyterLab</span>
+                               <span class="skill-item text-xs">Audio Processing</span>
+                           </div>
+                            <div class="mt-6 border-t border-slate/30 pt-4">
+                               <h4 class="font-mono text-sm text-green mb-3">Associated Project:</h4>
+                               <a href="https://github.com/Kush-Thakral/Cough-detector-app/tree/master" target="_blank" rel="noopener noreferrer" class="flex items-center gap-4 bg-navy p-3 rounded-md hover:shadow-lg transition-shadow">
+                                   <img src="https://github.com/Kush-Thakral/portfolio-assets/blob/main/Screenshot%202025-10-12%20175558.png?raw=true" class="rounded w-32 md:w-48" alt="Cough Detector App">
+                                   <span class="text-light-slate font-bold">AI-Powered Cough Detector</span>
+                               </a>
+                           </div>
+                       </div>
+                       <div id="tab-4" class="tab-content">
+                           <h3 class="text-xl font-bold text-light-slate">Data Science Intern <span class="text-green">@ Decodr Solutions</span></h3>
+                           <p class="font-mono text-sm mt-1 mb-4">May 2020 - July 2020</p>
+                           <ul class="space-y-3 custom-list">
+                               <li>Built <span class="text-green font-semibold">repositories of Data Science Projects</span> involving knowledge of <span class="text-green font-semibold">Python, Machine learning, Deep learning, and Recommender Systems.</span></li>
+                           </ul>
+                           <div class="flex flex-wrap gap-3 mt-6">
+                               <span class="skill-item text-xs">Python</span>
+                               <span class="skill-item text-xs">Machine Learning</span>
+                               <span class="skill-item text-xs">Deep Learning</span>
+                           </div>
+                            <div class="mt-6 border-t border-slate/30 pt-4">
+                               <h4 class="font-mono text-sm text-green mb-3">Associated Project:</h4>
+                               <a href="https://github.com/decodrtechnologies/Data-Science/tree/master/California%20Housing%20Prices" target="_blank" rel="noopener noreferrer" class="flex items-center gap-4 bg-navy p-3 rounded-md hover:shadow-lg transition-shadow">
+                                   <img src="https://github.com/Kush-Thakral/portfolio-assets/blob/main/Screenshot%202025-10-12%20173640.png?raw=true" class="rounded w-32 md:w-48" alt="Data Science Repositories">
+                                   <span class="text-light-slate font-bold">Data Science Repositories</span>
+                               </a>
+                           </div>
+                       </div>
+                       <div id="tab-5" class="tab-content">
+                           <h3 class="text-xl font-bold text-light-slate">Summer Research Intern <span class="text-green">@ IRMRA</span></h3>
+                           <p class="font-mono text-sm mt-1 mb-4">May 2019 - July 2019</p>
+                           <ul class="space-y-3 custom-list">
+                               <li>Formulated a <span class="text-green font-semibold">mathematical correlation</span> between tan delta and abrasion to optimize the fuel efficiency of a tyre.</li>
+                               <li>Used <span class="text-green font-semibold">regression techniques</span> to derive a relation between the important features and choose the best blend ratio of polymers.</li>
+                           </ul>
+                           <div class="flex flex-wrap gap-3 mt-6">
+                               <span class="skill-item text-xs">Research</span>
+                               <span class="skill-item text-xs">Regression Analysis</span>
+                               <span class="skill-item text-xs">Data Collection</span>
+                           </div>
+                       </div>
+                   </div>
+               </div>
+           </div>
+       </section>
+        
+        <!-- ===== EDUCATION SECTION (03) ===== -->
+        <!-- Education & Skills Section -->
+        <section id="education-skills" class="section">
+             <h2 class="text-3xl font-bold text-light-slate flex items-center section-heading"><span class="text-green font-mono mr-3">03.</span> Education & Skills</h2>
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
+                
+                <!-- Education Column -->
+                <div>
+                    <h3 class="text-2xl font-bold text-light-slate mb-8 text-center lg:text-left">Education</h3>
+                    <div class="max-w-md mx-auto lg:mx-0 timeline-container">
+                        <div class="timeline-line"></div>
+                        <!-- IIT Roorkee -->
+                        <div class="timeline-item">
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-content">
+                                <div class="bg-light-navy p-4 rounded-lg border border-slate/30 shadow-lg">
+                                    <div class="flex items-start gap-3">
+                                        <img src="https://upload.wikimedia.org/wikipedia/en/thumb/2/2d/Indian_Institute_of_Technology_Roorkee_Logo.svg/250px-Indian_Institute_of_Technology_Roorkee_Logo.svg.png" alt="IIT Roorkee Logo" class="w-10 h-10">
+                                        <div>
+                                            <h4 class="text-light-slate font-bold text-lg">Indian Institute of Technology, Roorkee</h4>
+                                            <p class="font-mono text-xs text-slate mt-1 mb-2">B.Tech, Polymer Science & Eng. | 2017 - 2021</p>
+                                            <p class="text-green font-mono text-xs">Grade: 7.2 CGPA</p>
+                                        </div>
+                                    </div>
+                                    <div class="mt-3 pt-3 border-t border-slate/30">
+                                        <h5 class="font-mono text-xs text-green mb-2">Internships:</h5>
+                                        <div class="flex flex-wrap gap-2">
+                                            <a href="#experience" data-internship-tab="4" class="internship-link skill-item text-xs p-2">Decodr Solutions</a>
+                                            <a href="#experience" data-internship-tab="3" class="internship-link skill-item text-xs p-2">B Aegis Life Science</a>
+                                            <a href="#experience" data-internship-tab="5" class="internship-link skill-item text-xs p-2">IRMRA</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- XIIth -->
+                        <div class="timeline-item">
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-content">
+                                <div class="bg-light-navy p-4 rounded-lg border border-slate/30 shadow-lg">
+                                    <div class="flex items-start gap-3">
+                                    <div class="w-8 h-6 flex items-center justify-center bg-navy rounded-full">
+                                        <img src="https://i0.wp.com/dpsrkp.net/v1wp_oll/wp-content/uploads/2019/08/logo-png-152x195.png?ssl=1" alt="Delhi Public School Logo" class="rounded-full">
+                                        </div>
+                                        <div>
+                                            <h4 class="text-light-slate font-bold text-lg">Delhi Public School (CBSE)</h4>
+                                            <p class="font-mono text-xs text-slate mt-1 mb-2">XIIth - Science | 2016</p>
+                                            <p class="text-green font-mono text-xs">Grade: 9.2 CGPA</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Xth -->
+                        <div class="timeline-item">
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-content">
+                                <div class="bg-light-navy p-4 rounded-lg border border-slate/30 shadow-lg">
+                                    <div class="flex items-start gap-3">
+                                        <div class="w-8 h-6 flex items-center justify-center bg-navy rounded-full">
+                                        <img src="https://i0.wp.com/dpsrkp.net/v1wp_oll/wp-content/uploads/2019/08/logo-png-152x195.png?ssl=1" alt="Delhi Public School Logo" class="rounded-full">
+                                        </div>
+                                        <div>
+                                            <h4 class="text-light-slate font-bold text-lg">Delhi Public School (CBSE)</h4>
+                                            <p class="font-mono text-xs text-slate mt-1 mb-2">Xth - Science | 2014</p>
+                                            <p class="text-green font-mono text-xs">Grade: 9.0 CGPA</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                     <h3 class="text-2xl font-bold text-light-slate mb-8 text-center lg:text-left">Skills & Technologies</h3>
+                     <div class="grid grid-cols-1 gap-4">
+                        <div class="card-base bg-light-navy p-4 rounded-lg border border-slate/30">
+                            <h4 class="text-light-slate font-bold text-md mb-4">Languages & Libraries</h4>
+                             <div class="flex flex-wrap gap-2">
+                                <div class="skill-item"><svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>Python</title><path d="M23.224 13.916c-.24-.438-.6-.764-1.039-.962a2.35 2.35 0 0 0-1.117-.233H12.93c-.538 0-1.039.222-1.402.593-.362.372-.56.88-.56 1.408v4.945c0 .08 0 .15.008.213a.5.5 0 0 0 .492.493h4.945a.5.5 0 0 0 .493-.492c.007-.063.007-.133.007-.213v-2.07c0-1.15.935-2.086 2.086-2.086h2.247c.484 0 .934.168 1.284.45.35.283.56.7.56 1.157v.463h-1.838c-.575 0-1.043.468-1.043 1.043s.468 1.043 1.043 1.043h1.838v.204c0 .456-.21.874-.56 1.157a1.86 1.86 0 0 1-1.284.45h-2.247c-2.31 0-4.18-1.87-4.18-4.18v-2.85h-2.07c-2.31 0-4.18-1.87-4.18-4.18V7.33h1.838c.575 0 1.043-.468 1.043-1.043S3.805 5.244 3.23 5.244H1.392v-.204c0-.456.21-.874.56-1.157.35-.282.8-.45 1.284-.45h2.247c2.31 0 4.18 1.87 4.18 4.18v2.85h2.07c2.31 0 4.18 1.87 4.18 4.18v2.07c0 .528.2 1.035.56 1.408.363.37.864.593 1.402.593h8.138c.575 0 1.043-.468 1.043-1.043s-.468-1.043-1.043-1.043h-7.094a2.59 2.59 0 0 1-1.85-.77 2.59 2.59 0 0 1-.77-1.85v-2.07c0-.528-.198-1.035-.56-1.408a1.98 1.98 0 0 0-1.402-.593H5.075c-.538 0-1.04.222-1.402.593-.363.372-.56.88-.56 1.408v3.084c0 .08 0 .15.008.213a.5.5 0 0 0 .492.493h3.083c.575 0 1.043.468 1.043 1.043s-.468 1.043-1.043 1.043H3.615a2.59 2.59 0 0 1-1.85-.77c-.49-.49-.77-1.15-.77-1.85v-3.084c0-1.15.935-2.086 2.086-2.086h2.247c.484 0 .934.168 1.284.45.35.283.56.7.56 1.157v.463H5.347c-.575 0-1.043.468-1.043 1.043s.468 1.043 1.043 1.043h1.838v.204c0 .456-.21.874-.56 1.157a1.86 1.86 0 0 1-1.284.45H3.14c-2.31 0-4.18-1.87-4.18-4.18V4.18C-1.04 1.87.83 0 3.14 0h2.85v2.07c0 2.31 1.87 4.18 4.18 4.18h7.705c.538 0 1.04-.222 1.402-.593.363-.372.56-.88.56-1.408V1.392h-1.838c-.575 0-1.043-.468-1.043-1.043S17.48.297 18.055.297h1.838v-.204c0-1.043.847-1.893 1.894-1.893h.015c1.04 0 1.885.85 1.885 1.893v8.01c0 1.15-.935 2.086-2.086 2.086h-2.247a1.86 1.86 0 0 1-1.284-.45c-.35-.283-.56-.7-.56-1.157v-.463h1.838c.575 0 1.043-.468 1.043-1.043s-.468-1.043-1.043-1.043h-1.838v-.204c0-.456.21-.874.56-1.157.35-.282.8-.45 1.284-.45h2.247c2.31 0 4.18 1.87 4.18 4.18zM.776 10.084c.49-.49.77-1.15.77-1.85V4.18c0-1.15-.935-2.086-2.086-2.086H3.14c-.484 0-.934.168-1.284.45-.35.283-.56.7-.56 1.157v.463h1.838c.575 0 1.043.468 1.043 1.043S3.705 6.244 3.13 6.244H1.292v.204c0 .456-.21.874-.56 1.157a1.86 1.86 0 0 1-1.284.45H-.78c-.01 0-.01 0 0 0h-.01c-2.31 0-4.18 1.87-4.18 4.18v4.052h1.838c.575 0 1.043.468 1.043 1.043s-.468 1.043-1.043 1.043h-1.838v-2.85c0-2.31 1.87-4.18 4.18-4.18h7.705c.538 0 1.04-.222 1.402-.593.363-.372.56-.88.56-1.408V7.33H12.93c-2.31 0-4.18 1.87-4.18 4.18v3.084c0 1.15-.935 2.086-2.086 2.086h-2.247a1.86 1.86 0 0 1-1.284-.45c-.35-.283-.56-.7-.56-1.157v-.463h1.838c.575 0 1.043.468 1.043-1.043s-.468-1.043-1.043-1.043H1.292v-.204c0-.456.21-.874.56-1.157.35-.282.8-.45 1.284-.45h2.247c.01 0 .01 0 0 0h.01c2.31 0 4.18-1.87 4.18-4.18V8.14c0-.456.21-.874.56-1.157a1.86 1.86 0 0 1 1.284-.45h7.094c1.15 0 2.086.935 2.086 2.086v2.07c0 .7.28 1.36.77 1.85a2.59 2.59 0 0 1 1.85.77h7.094c.575 0 1.043.468 1.043 1.043s-.468 1.043-1.043 1.043h-8.138a1.98 1.98 0 0 0-1.402.593c-.36.373-.56.88-.56 1.408v2.07z" fill="#3776AB"></path><path d="M23.224 13.916c-.24-.438-.6-.764-1.039-.962a2.35 2.35 0 0 0-1.117-.233H12.93c-.538 0-1.039.222-1.402.593-.362.372-.56.88-.56 1.408v4.945c0 .08 0 .15.008.213a.5.5 0 0 0 .492.493h4.945a.5.5 0 0 0 .493-.492c.007-.063.007-.133.007-.213v-2.07c0-1.15.935-2.086 2.086-2.086h2.247c.484 0 .934.168 1.284.45.35.283.56.7.56 1.157v.463h-1.838c-.575 0-1.043.468-1.043 1.043s.468 1.043 1.043 1.043h1.838v.204c0 .456-.21.874-.56 1.157a1.86 1.86 0 0 1-1.284.45h-2.247c-2.31 0-4.18-1.87-4.18-4.18v-2.85h-2.07c-2.31 0-4.18-1.87-4.18-4.18V7.33h1.838c.575 0 1.043-.468 1.043-1.043S3.805 5.244 3.23 5.244H1.392v-.204c0-.456.21-.874.56-1.157.35-.282.8-.45 1.284-.45h2.247c2.31 0 4.18 1.87 4.18 4.18v2.85h2.07c2.31 0 4.18 1.87 4.18 4.18v2.07c0 .528.2 1.035.56 1.408.363.37.864.593 1.402.593h8.138c.575 0 1.043-.468 1.043-1.043s-.468-1.043-1.043-1.043h-7.094a2.59 2.59 0 0 1-1.85-.77 2.59 2.59 0 0 1-.77-1.85v-2.07c0-.528-.198-1.035-.56-1.408a1.98 1.98 0 0 0-1.402-.593H5.075c-.538 0-1.04.222-1.402.593-.363.372-.56.88-.56 1.408v3.084c0 .08 0 .15.008.213a.5.5 0 0 0 .492.493h3.083c.575 0 1.043.468 1.043 1.043s-.468 1.043-1.043 1.043H3.615a2.59 2.59 0 0 1-1.85-.77c-.49-.49-.77-1.15-.77-1.85v-3.084c0-1.15.935-2.086 2.086-2.086h2.247c.484 0 .934.168 1.284.45.35.283.56.7.56 1.157v.463H5.347c-.575 0-1.043.468-1.043 1.043s.468 1.043 1.043 1.043h1.838v.204c0 .456-.21.874-.56 1.157a1.86 1.86 0 0 1-1.284.45H3.14c-2.31 0-4.18-1.87-4.18-4.18V4.18C-1.04 1.87.83 0 3.14 0h2.85v2.07c0 2.31 1.87 4.18 4.18 4.18h7.705c.538 0 1.04-.222 1.402-.593.363-.372.56-.88.56-1.408V1.392h-1.838c-.575 0-1.043-.468-1.043-1.043S17.48.297 18.055.297h1.838v-.204c0-1.043.847-1.893 1.894-1.893h.015c1.04 0 1.885.85 1.885 1.893v8.01c0 1.15-.935 2.086-2.086 2.086h-2.247a1.86 1.86 0 0 1-1.284-.45c-.35-.283-.56-.7-.56-1.157v-.463h1.838c.575 0 1.043-.468 1.043-1.043s-.468-1.043-1.043-1.043h-1.838v-.204c0-.456.21-.874.56-1.157.35-.282.8-.45 1.284-.45h2.247c2.31 0 4.18 1.87 4.18 4.18zM.776 10.084c.49-.49.77-1.15.77-1.85V4.18c0-1.15-.935-2.086-2.086-2.086H3.14c-.484 0-.934.168-1.284.45-.35.283-.56.7-.56 1.157v.463h1.838c.575 0 1.043.468 1.043 1.043S3.705 6.244 3.13 6.244H1.292v.204c0 .456-.21.874-.56 1.157a1.86 1.86 0 0 1-1.284.45H-.78c-.01 0-.01 0 0 0h-.01c-2.31 0-4.18 1.87-4.18 4.18v4.052h1.838c.575 0 1.043.468 1.043 1.043s-.468 1.043-1.043 1.043h-1.838v-2.85c0-2.31 1.87-4.18 4.18-4.18h7.705c.538 0 1.04-.222 1.402-.593.363-.372.56-.88.56-1.408V7.33H12.93c-2.31 0-4.18 1.87-4.18 4.18v3.084c0 1.15-.935 2.086-2.086 2.086h-2.247a1.86 1.86 0 0 1-1.284-.45c-.35-.283-.56-.7-.56-1.157v-.463h1.838c.575 0 1.043.468 1.043-1.043s-.468-1.043-1.043-1.043H1.292v-.204c0-.456.21-.874.56-1.157.35-.282.8-.45 1.284-.45h2.247c.01 0 .01 0 0 0h.01c2.31 0 4.18-1.87 4.18-4.18V8.14c0-.456.21-.874.56-1.157a1.86 1.86 0 0 1 1.284-.45h7.094c1.15 0 2.086.935 2.086 2.086v2.07c0 .7.28 1.36.77 1.85a2.59 2.59 0 0 1 1.85.77h7.094c.575 0 1.043.468 1.043 1.043s-.468 1.043-1.043 1.043h-8.138a1.98 1.98 0 0 0-1.402.593c-.36.373-.56.88-.56 1.408v2.07z" fill="#FFD444"/></svg><span>Python</span></div>
+                                <div class="skill-item"><svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>NumPy</title><path d="M13.184 1.43a.56.56 0 0 0-.61.03l-1.04.83a.48.48 0 0 0-.17.51l2.03 10.87-3.01-1.84a.48.48 0 0 0-.52 0l-3.01 1.84L9.04 2.8a.48.48 0 0 0-.17-.51l-1.04-.83a.56.56 0 0 0-.61-.03L.57 5.42a.48.48 0 0 0-.31.6l4.43 2.74-3.5 13.56c-.16.63.26 1.25.9 1.4l1.32.34.02.08c.18.72.8 1.22 1.55 1.22h10.1c.75 0 1.37-.5 1.55-1.22l.02-.08 1.32-.34c.64-.15 1.06-.77.9-1.4L18.8 8.76l4.44-2.74c.48-.3.6-1.02.3-1.5z" fill="#4D77CF"></path><path d="m17.06 8.76-1.74-2.42-2.12-1.4-2.3-1.12-1.57.94 2.19 11.83 3.65-2.26 1.3-.8 1.24-.78-2.65-10.77z" fill="#FFD43B"></path></svg><span>NumPy</span></div>
+                                <div class="skill-item"><svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>pandas</title><path d="M2.4 16.32h3.6v-3.36h1.2v3.36h3.6v1.2H2.4v-1.2z" fill="#130654"></path><path d="M15.6 7.2h3.6V3.84h1.2v3.36h3.6v1.2h-8.4V7.2z" fill="#130654"></path><path d="M2.4 8.88h8.4V7.68H2.4v1.2zm19.2 6.24h-3.6v3.36h-1.2v-3.36h-3.6v-1.2h8.4v1.2z" fill="#130654"></path><path d="M12 12.72h1.2v-1.2H12v1.2zm0 3.6h1.2v-1.2H12v1.2zm0-7.2h1.2V7.92H12v1.2zm0 3.6h1.2v-1.2H12v1.2zm0-7.2h1.2V3.84H12V5.52zM12 21.6h1.2v-1.2H12V21.6zm-2.4-1.2h1.2v-1.2H9.6v1.2zM7.2 21.6h1.2v-1.2H7.2V21.6zM4.8 21.6h1.2v-1.2H4.8V21.6zM2.4 21.6h1.2v-1.2H2.4V21.6zM12 3.84h1.2V2.4H12v1.44zm2.4 1.2h1.2V3.84h-1.2v1.2zM16.8 3.84h1.2V2.4h-1.2v1.44zm2.4 1.2h1.2V3.84h-1.2v1.2zm2.4-1.2h1.2V2.4h-1.2v1.44z" fill="#e70488"></path></svg><span>Pandas</span></div>
+                                <div class="skill-item"><svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>Matplotlib</title><path d="M21.859 19.92H18.32V4.08h3.54zm-4.7-15.84v9.98c0 1.93-1.05 3.19-2.9 3.19h-.4c-.58 0-1.1-.1-1.61-.3l-.53 2.45c.6.22 1.32.33 2.14.33h.4c3.48 0 5.49-2.23 5.49-5.64V4.08h-3.12z" fill="#11557c"></path><circle cx="4.44" cy="19.01" r="2.22" fill="#880000"></circle><path d="M5.68 4.08H2.14v15.84h3.54z" fill="#11557c"></path><circle cx="13.2" cy="4.99" r="2.22" fill="#11557c"></circle><circle cx="18.99" cy="12" r="2.22" fill="#11557c"></circle><circle cx="18.99" cy="4.99" r="2.22" fill="#11557c"></circle><circle cx="18.99" cy="19.01" r="2.22" fill="#11557c"></circle></svg><span>Matplotlib</span></div>
+                                <div class="skill-item"><svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>Seaborn</title><path d="M12.39 5.37a2.43 2.43 0 0 0-2.02 1.06 3.15 3.15 0 0 0-.44 1.76c0 .7.15 1.25.46 1.66.3.4.73.62 1.27.62.9 0 1.57-.65 2-1.92L16.29 5H24v14h-2.58v-4.17c0-2.43-1.38-3.9-3.92-3.9-1.26 0-2.24.46-2.9 1.35a4.01 4.01 0 0 0-1.07 2.89v3.83H11V5.37h1.39zM10.36 1.47a3.17 3.17 0 1 0 0 6.34 3.17 3.17 0 0 0 0-6.34zM0 19h9.17v-2.06H2.58V5h6.59V2.94H0V19z" fill="#377eb8"></path></svg><span>Seaborn</span></div>
+                                <div class="skill-item"><svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>MySQL</title><path d="M12.08 17.58c-1.25 0-2.45-.19-3.57-.56-.16-.05-.28-.18-.3-.34l-.4-3.23c0-.18.08-.34.23-.44l.84-.57c.14-.1.33-.08.45.06l.5.6c.1.13.26.18.42.16 2.02-.33 3.65-1.85 4.14-3.8.1-.4-.05-.83-.4-1.1-.33-.26-1.1-.73-1.1-.73-.2-.14-.24-.4-.1-.6l.6-1.03c.14-.23.43-.3.66-.18 2.53 1.33 4.2 3.93 4.1 6.78-.1 3.2-2.5 5.9-5.63 6.13-.5.04-1 .06-1.5.06z" fill="#00758F"></path><path d="M7.4 17.2c-.37 0-.7-.26-.78-.62l-1.15-5.2c-.06-.3.1-.6.4-.7l3.24-1.1c.3-.1.62.08.72.38l1.16 5.2c.07.3-.1.6-.4.7L7.4 17.2zm5.8-14.33c.36 0 .68.25.77.6l1.37 5.1c.1.33-.08.68-.4.78l-3.24 1.02c-.33.1-.65-.1-.76-.4l-1.37-5.1c-.08-.32.1-.66.42-.75l3.2-1.03z" fill="#F29111"></path><path d="M10.98 16.2c-.1-.08-.26-.06-.33.05l-.5.78c-.08.13-.04.3.08.4l.7.53c.12.08.28.07.38-.03l.6-.6c.1-.1.1-.26 0-.37l-.92-1.76zm-5.78-10.4l1.1-1.02c.12-.1.14-.3.04-.44l-.7-.96c-.1-.14-.28-.2-.44-.1L3.9 4.1c-.2.1-.27.34-.16.53l.6 1.03c.1.18.3.24.47.16z" fill="#00758F"></path></svg><span>MySQL</span></div>
+                            </div>
+                        </div>
+                        <div class="card-base bg-light-navy p-4 rounded-lg border border-slate/30">
+                            <h4 class="text-light-slate font-bold text-md mb-4">Tools</h4>
+                            <div class="flex flex-wrap gap-2">
+                               <div class="skill-item"><svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>GitHub</title><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12" fill="#FFFFFF"></path></svg><span>GitHub</span></div>
+                               <div class="skill-item"><svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>Visual Studio Code</title><path d="M23.15 2.587L18.44 0 15.26 1.584l-3.33-1.584-8.82 4.192v13.626l8.82 4.192 11.23-5.333V7.92L23.15 2.587zM8.08 19.34V8.127l-4.94-2.35v6.52L8.08 19.34zm6.81 2.2L3.14 16.5v-9L14.89 2.4v19.14zm5.07-5.487l-4.59 2.18V5.077l4.59-2.18v14.11z" fill="#007ACC"></path></svg><span>VS Code</span></div>
+                               <div class="skill-item"><svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>Microsoft Excel</title><path d="M22.11 1.5H1.89C1.04 1.5.5 2.04.5 2.88v18.24c0 .85.54 1.38 1.39 1.38h20.22c.84 0 1.39-.53 1.39-1.38V2.88c0-.84-.55-1.38-1.39-1.38zM10.36 6.8h-4.2L3.7 12l2.45 5.2h4.3L7.86 12l2.5-5.2zM19.75 17.5h-3.5v-2.25h2v-2h-2V9.5h3.5v-2h-5.75v10h5.75v-2z" fill="#185C37"></path></svg><span>MS Excel</span></div>
+                               <div class="skill-item"><svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>Power BI</title><path d="M1.2 1.2h10.95v21.6H1.2V1.2zm3.39 2.16v17.28h4.68V3.36H4.59zm8.25 5.04v16.56H22.8V8.4h-9.96zM15.23 10.56h5.4v12.24h-5.4V10.56z" fill="#F2C811"></path></svg><span>Power BI</span></div>
+                               <div class="skill-item"><svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>Jupyter</title><path d="M12.015 22.935c-2.88.01-5.63-1.12-7.66-3.1-2.02-1.97-3.16-4.66-3.19-7.48a10.84 10.84 0 0 1 10.85-10.89 10.84 10.84 0 0 1 10.89 10.84c-.01 2.83-1.15 5.54-3.19 7.52-2.05 1.99-4.8 3.12-7.7 3.11z" fill="#393834"></path><path d="M12.015 2.535a9.84 9.84 0 0 0-9.85 9.85 9.84 9.84 0 0 0 9.85 9.85 9.84 9.84 0 0 0 9.89-9.85 9.84 9.84 0 0 0-9.89-9.85z" fill="#fff"></path><path d="M12.015 15.175a2.53 2.53 0 1 1 0-5.06 2.53 2.53 0 0 1 0 5.06zm-5.06 5.06a2.53 2.53 0 1 1 0-5.06 2.53 2.53 0 0 1 0 5.06zm10.12 0a2.53 2.53 0 1 1 0-5.06 2.53 2.53 0 0 1 0 5.06z" fill="#f37626"></path></svg><span>Jupyter</span></div>
+                            </div>
+                        </div>
+                         <div class="card-base bg-light-navy p-4 rounded-lg border border-slate/30">
+                            <h4 class="text-light-slate font-bold text-md mb-4">Professional</h4>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="skill-item text-xs">Data Cleaning</span>
+                                <span class="skill-item text-xs">EDA</span>
+                                <span class="skill-item text-xs">Predictive Modeling</span>
+                                <span class="skill-item text-xs">Stakeholder Management</span>
+                                <span class="skill-item text-xs">Data Storytelling</span>
+                                <span class="skill-item text-xs">Recommender Systems</span>
+                                <span class="skill-item text-xs">Team Management</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+       <!-- ===== PROJECTS SECTION (04) ===== -->
+       <section id="projects" class="section">
+           <h2 class="text-3xl font-bold text-light-slate flex items-center section-heading"><span class="text-green font-mono mr-3">04.</span> Some Things I've Built</h2>
+           
+           <div class="project-grid grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+               <!-- Project 1: AI Cough Detector -->
+               <div class="card-base flex flex-col rounded-md overflow-hidden">
+                   <a href="https://github.com/Kush-Thakral/Cough-detector-app/tree/master" target="_blank" rel="noopener noreferrer" class="block hover:opacity-90 transition-opacity">
+                       <img src="https://github.com/Kush-Thakral/portfolio-assets/blob/main/Screenshot%202025-10-12%20175558.png?raw=true" alt="AI Cough Detector Project">
+                   </a>
+                   <div class="p-6 flex flex-col flex-grow">
+                        <div class="flex-grow">
+                           <h3 class="text-light-slate font-bold text-xl mb-3">AI-Powered Cough Detector</h3>
+                           <p>A real-time cough detection application developed during my internship at B Aegis Life Science. It uses a CNN model to classify cough sounds from ambient noise after converting audio to spectrograms.</p>
+                       </div>
+                       <div class="mt-4 pt-4 border-t border-slate/30 text-xs font-mono text-slate flex items-center gap-x-4">
+                           <span>Python</span>
+                           <span>CNN</span>
+                           <span>Spectrograms</span>
+                       </div>
+                   </div>
+               </div>
+
+               <!-- Project 2: Data Science Repositories -->
+               <div class="card-base flex flex-col rounded-md overflow-hidden">
+                    <a href="https://github.com/Kush-Thakral/Gym-Crowd-Analysis-PCA-implementation-" target="_blank" rel="noopener noreferrer" class="block hover:opacity-90 transition-opacity">
+                       <img src="https://github.com/Kush-Thakral/portfolio-assets/blob/main/Screenshot%202025-10-12%20174534.png?raw=true" alt="Data Science Repositories">
+                   </a>
+                   <div class="p-6 flex flex-col flex-grow">
+                       <div class="flex-grow">
+                           <h3 class="text-light-slate font-bold text-xl mb-3">Gym Crowd Anaalysis with PCA Implementation</h3>
+                           <p>To predict how crowded a university gym would be at a given time of day (and some other features, including weather)</p>
+                       </div>
+                       <div class="mt-4 pt-4 border-t border-slate/30 text-xs font-mono text-slate flex items-center gap-x-4">
+                           <span>Python</span>
+                           <span>ML</span>
+                           <span>PCA</span>
+                       </div>
+                   </div>
+               </div>
+
+               <!-- Project 3: Math Content Creation -->
+               <div class="card-base flex flex-col rounded-md overflow-hidden">
+                    <a href="https://www.youtube.com/watch?v=tuBUQHgmZtI" target="_blank" rel="noopener noreferrer" class="block hover:opacity-90 transition-opacity">
+                       <img src="https://github.com/Kush-Thakral/portfolio-assets/blob/main/Screenshot%202025-10-12%20175030.png?raw=true" alt="Khan Academy Math Content">
+                   </a>
+                   <div class="p-6 flex flex-col flex-grow">
+                       <div class="flex-grow">
+                           <h3 class="text-light-slate font-bold text-xl mb-3">Math Content Creation</h3>
+                           <p>How to construct graph of sine inverse knowing the sine curve.</p>
+                       </div>
+                        <div class="mt-4 pt-4 border-t border-slate/30 text-xs font-mono text-slate flex items-center gap-x-4">
+                           <span>PowerPoint</span>
+                           <span>Adobe Premiere Pro</span>
+                       </div>
+                   </div>
+               </div>
+                
+                <!-- Hidden Projects -->
+                <div class="card-base flex-col rounded-md overflow-hidden project-more">
+                     <a href="https://github.com/Kush-Thakral/Linear-Regression-from-Scratch" target="_blank" rel="noopener noreferrer" class="block hover:opacity-90 transition-opacity">
+                       <img src="https://github.com/Kush-Thakral/portfolio-assets/blob/main/Screenshot%202025-10-12%20180205.png?raw=true" alt="Placeholder Project">
+                   </a>
+                   <div class="p-6 flex flex-col flex-grow">
+                       <div class="flex-grow">
+                           <h3 class="text-light-slate font-bold text-xl mb-3">Linear Regression from Scratch</h3>
+                           <p>Linear regression model is built from scratch only for a single attribute dataset using statistical formulas.</p>
+                       </div>
+                       <div class="mt-4 pt-4 border-t border-slate/30 text-xs font-mono text-slate flex items-center gap-x-4">
+                           <span>Python</span>
+                           <span>JupyterLab</span>
+                           <span>Statistics</span>
+                       </div>
+                   </div>
+               </div>
+               <div class="card-base flex-col rounded-md overflow-hidden project-more">
+                     <a href="https://github.com/decodrtechnologies/Data-Science/tree/master/California%20Housing%20Prices" target="_blank" rel="noopener noreferrer" class="block hover:opacity-90 transition-opacity">
+                       <img src="https://github.com/Kush-Thakral/portfolio-assets/blob/main/Screenshot%202025-10-12%20173640.png?raw=true" alt="Placeholder Project">
+                   </a>
+                   <div class="p-6 flex flex-col flex-grow">
+                       <div class="flex-grow">
+                           <h3 class="text-light-slate font-bold text-xl mb-3">California Housing Prices</h3>
+                           <p>This is the dataset used in the second chapter of Aurélien Géron's recent book 'Hands-On Machine learning with Scikit-Learn and TensorFlow'. It serves as an excellent introduction to implementing machine learning algorithms because it requires rudimentary data cleaning, has an easily understandable list of variables and sits at an optimal size between being to toyish and too cumbersome.</p>
+                       </div>
+                       <div class="mt-4 pt-4 border-t border-slate/30 text-xs font-mono text-slate flex items-center gap-x-4">
+                           <span>Python</span>
+                           <span>JupyterLab</span>
+                           <span>Regression</span>
+                       </div>
+                   </div>
+               </div>
+               <div class="card-base flex-col rounded-md overflow-hidden project-more">
+                     <a href="https://github.com/Kush-Thakral/Basic-Neural-Network-from-scratch/tree/master" target="_blank" rel="noopener noreferrer" class="block hover:opacity-90 transition-opacity">
+                       <img src="https://github.com/Kush-Thakral/portfolio-assets/blob/main/Screenshot%202025-10-12%20180555.png?raw=true" alt="Placeholder Project">
+                   </a>
+                   <div class="p-6 flex flex-col flex-grow">
+                       <div class="flex-grow">
+                           <h3 class="text-light-slate font-bold text-xl mb-3">Basic Neural Network from Scratch</h3>
+                           <p>A Basic neural network having one hidden layer is implemented by building model , predict and loss functions. Plot decision boundary function has already been built to show the decision boundaries in plots. The dataset is created through scikitlearn's inbuilt function and the input and output terms are taken from it.</p>
+                       </div>
+                       <div class="mt-4 pt-4 border-t border-slate/30 text-xs font-mono text-slate flex items-center gap-x-4">
+                           <span>Python</span>
+                           <span>JupyterLab</span>
+                           <span>Neural Network</span>
+                       </div>
+                   </div>
+               </div>
+                <div class="card-base flex-col rounded-md overflow-hidden project-more">
+                     <a href="https://github.com/decodrtechnologies/Data-Science/tree/master/Car%20Evaluation" target="_blank" rel="noopener noreferrer" class="block hover:opacity-90 transition-opacity">
+                       <img src="https://github.com/Kush-Thakral/portfolio-assets/blob/main/Screenshot%202025-10-12%20181537.png?raw=true" alt="Placeholder Project">
+                   </a>
+                   <div class="p-6 flex flex-col flex-grow">
+                       <div class="flex-grow">
+                           <h3 class="text-light-slate font-bold text-xl mb-3">Car Evaluation Analysis</h3>
+                           <p>To classify a car as acceptable , unacceptable , good or very good based on its price , characterstics and maintenance cost.</p>
+                       </div>
+                       <div class="mt-4 pt-4 border-t border-slate/30 text-xs font-mono text-slate flex items-center gap-x-4">
+                           <span>Python</span>
+                           <span>Classification</span>
+                           <span>JupyterLab</span>
+                       </div>
+                   </div>
+               </div>
+
+           </div>
+
+            <div class="mt-16 text-center">
+                <button id="toggle-projects-btn" class="show-more-btn font-mono text-green border border-green rounded py-3 px-6 font-bold">Show More</button>
+            </div>
+       </section>
+       
+       <!-- ===== SKILLS SECTION (05) ===== 
+        <section id="skills" class="section">
+            <h2 class="text-3xl font-bold text-light-slate flex items-center section-heading"><span class="text-green font-mono mr-3">05.</span> Skills & Technologies</h2>
+            <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                
+                <div class="card-base bg-light-navy p-6 rounded-lg border border-slate/30">
+                    <h3 class="text-light-slate font-bold text-lg mb-4">Languages and Libraries</h3>
+                    <div class="flex flex-wrap gap-2">
+                                <div class="skill-item"><svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>Python</title><path d="M23.224 13.916c-.24-.438-.6-.764-1.039-.962a2.35 2.35 0 0 0-1.117-.233H12.93c-.538 0-1.039.222-1.402.593-.362.372-.56.88-.56 1.408v4.945c0 .08 0 .15.008.213a.5.5 0 0 0 .492.493h4.945a.5.5 0 0 0 .493-.492c.007-.063.007-.133.007-.213v-2.07c0-1.15.935-2.086 2.086-2.086h2.247c.484 0 .934.168 1.284.45.35.283.56.7.56 1.157v.463h-1.838c-.575 0-1.043.468-1.043 1.043s.468 1.043 1.043 1.043h1.838v.204c0 .456-.21.874-.56 1.157a1.86 1.86 0 0 1-1.284.45h-2.247c-2.31 0-4.18-1.87-4.18-4.18v-2.85h-2.07c-2.31 0-4.18-1.87-4.18-4.18V7.33h1.838c.575 0 1.043-.468 1.043-1.043S3.805 5.244 3.23 5.244H1.392v-.204c0-.456.21-.874.56-1.157.35-.282.8-.45 1.284-.45h2.247c2.31 0 4.18 1.87 4.18 4.18v2.85h2.07c2.31 0 4.18 1.87 4.18 4.18v2.07c0 .528.2 1.035.56 1.408.363.37.864.593 1.402.593h8.138c.575 0 1.043-.468 1.043-1.043s-.468-1.043-1.043-1.043h-7.094a2.59 2.59 0 0 1-1.85-.77 2.59 2.59 0 0 1-.77-1.85v-2.07c0-.528-.198-1.035-.56-1.408a1.98 1.98 0 0 0-1.402-.593H5.075c-.538 0-1.04.222-1.402.593-.363.372-.56.88-.56 1.408v3.084c0 .08 0 .15.008.213a.5.5 0 0 0 .492.493h3.083c.575 0 1.043.468 1.043 1.043s-.468 1.043-1.043 1.043H3.615a2.59 2.59 0 0 1-1.85-.77c-.49-.49-.77-1.15-.77-1.85v-3.084c0-1.15.935-2.086 2.086-2.086h2.247c.484 0 .934.168 1.284.45.35.283.56.7.56 1.157v.463H5.347c-.575 0-1.043.468-1.043 1.043s.468 1.043 1.043 1.043h1.838v.204c0 .456-.21.874-.56 1.157a1.86 1.86 0 0 1-1.284.45H3.14c-2.31 0-4.18-1.87-4.18-4.18V4.18C-1.04 1.87.83 0 3.14 0h2.85v2.07c0 2.31 1.87 4.18 4.18 4.18h7.705c.538 0 1.04-.222 1.402-.593.363-.372.56-.88.56-1.408V1.392h-1.838c-.575 0-1.043-.468-1.043-1.043S17.48.297 18.055.297h1.838v-.204c0-1.043.847-1.893 1.894-1.893h.015c1.04 0 1.885.85 1.885 1.893v8.01c0 1.15-.935 2.086-2.086 2.086h-2.247a1.86 1.86 0 0 1-1.284-.45c-.35-.283-.56-.7-.56-1.157v-.463h1.838c.575 0 1.043-.468 1.043-1.043s-.468-1.043-1.043-1.043h-1.838v-.204c0-.456.21-.874.56-1.157.35-.282.8-.45 1.284-.45h2.247c2.31 0 4.18 1.87 4.18 4.18zM.776 10.084c.49-.49.77-1.15.77-1.85V4.18c0-1.15-.935-2.086-2.086-2.086H3.14c-.484 0-.934.168-1.284.45-.35.283-.56.7-.56 1.157v.463h1.838c.575 0 1.043.468 1.043 1.043S3.705 6.244 3.13 6.244H1.292v.204c0 .456-.21.874-.56 1.157a1.86 1.86 0 0 1-1.284.45H-.78c-.01 0-.01 0 0 0h-.01c-2.31 0-4.18 1.87-4.18 4.18v4.052h1.838c.575 0 1.043.468 1.043 1.043s-.468 1.043-1.043 1.043h-1.838v-2.85c0-2.31 1.87-4.18 4.18-4.18h7.705c.538 0 1.04-.222 1.402-.593.363-.372.56-.88.56-1.408V7.33H12.93c-2.31 0-4.18 1.87-4.18 4.18v3.084c0 1.15-.935 2.086-2.086 2.086h-2.247a1.86 1.86 0 0 1-1.284-.45c-.35-.283-.56-.7-.56-1.157v-.463h1.838c.575 0 1.043.468 1.043-1.043s-.468-1.043-1.043-1.043H1.292v-.204c0-.456.21-.874.56-1.157.35-.282.8-.45 1.284-.45h2.247c.01 0 .01 0 0 0h.01c2.31 0 4.18-1.87 4.18-4.18V8.14c0-.456.21-.874.56-1.157a1.86 1.86 0 0 1 1.284-.45h7.094c1.15 0 2.086.935 2.086 2.086v2.07c0 .7.28 1.36.77 1.85a2.59 2.59 0 0 1 1.85.77h7.094c.575 0 1.043.468 1.043 1.043s-.468 1.043-1.043 1.043h-8.138a1.98 1.98 0 0 0-1.402.593c-.36.373-.56.88-.56 1.408v2.07z" fill="#3776AB"></path><path d="M23.224 13.916c-.24-.438-.6-.764-1.039-.962a2.35 2.35 0 0 0-1.117-.233H12.93c-.538 0-1.039.222-1.402.593-.362.372-.56.88-.56 1.408v4.945c0 .08 0 .15.008.213a.5.5 0 0 0 .492.493h4.945a.5.5 0 0 0 .493-.492c.007-.063.007-.133.007-.213v-2.07c0-1.15.935-2.086 2.086-2.086h2.247c.484 0 .934.168 1.284.45.35.283.56.7.56 1.157v.463h-1.838c-.575 0-1.043.468-1.043 1.043s.468 1.043 1.043 1.043h1.838v.204c0 .456-.21.874-.56 1.157a1.86 1.86 0 0 1-1.284.45h-2.247c-2.31 0-4.18-1.87-4.18-4.18v-2.85h-2.07c-2.31 0-4.18-1.87-4.18-4.18V7.33h1.838c.575 0 1.043-.468 1.043-1.043S3.805 5.244 3.23 5.244H1.392v-.204c0-.456.21-.874.56-1.157.35-.282.8-.45 1.284-.45h2.247c2.31 0 4.18 1.87 4.18 4.18v2.85h2.07c2.31 0 4.18 1.87 4.18 4.18v2.07c0 .528.2 1.035.56 1.408.363.37.864.593 1.402.593h8.138c.575 0 1.043-.468 1.043-1.043s-.468-1.043-1.043-1.043h-7.094a2.59 2.59 0 0 1-1.85-.77 2.59 2.59 0 0 1-.77-1.85v-2.07c0-.528-.198-1.035-.56-1.408a1.98 1.98 0 0 0-1.402-.593H5.075c-.538 0-1.04.222-1.402.593-.363.372-.56.88-.56 1.408v3.084c0 .08 0 .15.008.213a.5.5 0 0 0 .492.493h3.083c.575 0 1.043.468 1.043 1.043s-.468 1.043-1.043 1.043H3.615a2.59 2.59 0 0 1-1.85-.77c-.49-.49-.77-1.15-.77-1.85v-3.084c0-1.15.935-2.086 2.086-2.086h2.247c.484 0 .934.168 1.284.45.35.283.56.7.56 1.157v.463H5.347c-.575 0-1.043.468-1.043 1.043s.468 1.043 1.043 1.043h1.838v.204c0 .456-.21.874-.56 1.157a1.86 1.86 0 0 1-1.284.45H3.14c-2.31 0-4.18-1.87-4.18-4.18V4.18C-1.04 1.87.83 0 3.14 0h2.85v2.07c0 2.31 1.87 4.18 4.18 4.18h7.705c.538 0 1.04-.222 1.402-.593.363-.372.56-.88.56-1.408V1.392h-1.838c-.575 0-1.043-.468-1.043-1.043S17.48.297 18.055.297h1.838v-.204c0-1.043.847-1.893 1.894-1.893h.015c1.04 0 1.885.85 1.885 1.893v8.01c0 1.15-.935 2.086-2.086 2.086h-2.247a1.86 1.86 0 0 1-1.284-.45c-.35-.283-.56-.7-.56-1.157v-.463h1.838c.575 0 1.043-.468 1.043-1.043s-.468-1.043-1.043-1.043h-1.838v-.204c0-.456.21-.874.56-1.157.35-.282.8-.45 1.284-.45h2.247c2.31 0 4.18 1.87 4.18 4.18zM.776 10.084c.49-.49.77-1.15.77-1.85V4.18c0-1.15-.935-2.086-2.086-2.086H3.14c-.484 0-.934.168-1.284.45-.35.283-.56.7-.56 1.157v.463h1.838c.575 0 1.043.468 1.043 1.043S3.705 6.244 3.13 6.244H1.292v.204c0 .456-.21.874-.56 1.157a1.86 1.86 0 0 1-1.284.45H-.78c-.01 0-.01 0 0 0h-.01c-2.31 0-4.18 1.87-4.18 4.18v4.052h1.838c.575 0 1.043.468 1.043 1.043s-.468 1.043-1.043 1.043h-1.838v-2.85c0-2.31 1.87-4.18 4.18-4.18h7.705c.538 0 1.04-.222 1.402-.593.363-.372.56-.88.56-1.408V7.33H12.93c-2.31 0-4.18 1.87-4.18 4.18v3.084c0 1.15-.935 2.086-2.086 2.086h-2.247a1.86 1.86 0 0 1-1.284-.45c-.35-.283-.56-.7-.56-1.157v-.463h1.838c.575 0 1.043.468 1.043-1.043s-.468-1.043-1.043-1.043H1.292v-.204c0-.456.21-.874.56-1.157.35-.282.8-.45 1.284-.45h2.247c.01 0 .01 0 0 0h.01c2.31 0 4.18-1.87 4.18-4.18V8.14c0-.456.21-.874.56-1.157a1.86 1.86 0 0 1 1.284-.45h7.094c1.15 0 2.086.935 2.086 2.086v2.07c0 .7.28 1.36.77 1.85a2.59 2.59 0 0 1 1.85.77h7.094c.575 0 1.043.468 1.043 1.043s-.468 1.043-1.043 1.043h-8.138a1.98 1.98 0 0 0-1.402.593c-.36.373-.56.88-.56 1.408v2.07z" fill="#FFD444"/></svg><span>Python</span></div>
+                                <div class="skill-item"><svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>NumPy</title><path d="M13.184 1.43a.56.56 0 0 0-.61.03l-1.04.83a.48.48 0 0 0-.17.51l2.03 10.87-3.01-1.84a.48.48 0 0 0-.52 0l-3.01 1.84L9.04 2.8a.48.48 0 0 0-.17-.51l-1.04-.83a.56.56 0 0 0-.61-.03L.57 5.42a.48.48 0 0 0-.31.6l4.43 2.74-3.5 13.56c-.16.63.26 1.25.9 1.4l1.32.34.02.08c.18.72.8 1.22 1.55 1.22h10.1c.75 0 1.37-.5 1.55-1.22l.02-.08 1.32-.34c.64-.15 1.06-.77.9-1.4L18.8 8.76l4.44-2.74c.48-.3.6-1.02.3-1.5z" fill="#4D77CF"></path><path d="m17.06 8.76-1.74-2.42-2.12-1.4-2.3-1.12-1.57.94 2.19 11.83 3.65-2.26 1.3-.8 1.24-.78-2.65-10.77z" fill="#FFD43B"></path></svg><span>NumPy</span></div>
+                                <div class="skill-item"><svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>pandas</title><path d="M2.4 16.32h3.6v-3.36h1.2v3.36h3.6v1.2H2.4v-1.2z" fill="#130654"></path><path d="M15.6 7.2h3.6V3.84h1.2v3.36h3.6v1.2h-8.4V7.2z" fill="#130654"></path><path d="M2.4 8.88h8.4V7.68H2.4v1.2zm19.2 6.24h-3.6v3.36h-1.2v-3.36h-3.6v-1.2h8.4v1.2z" fill="#130654"></path><path d="M12 12.72h1.2v-1.2H12v1.2zm0 3.6h1.2v-1.2H12v1.2zm0-7.2h1.2V7.92H12v1.2zm0 3.6h1.2v-1.2H12v1.2zm0-7.2h1.2V3.84H12V5.52zM12 21.6h1.2v-1.2H12V21.6zm-2.4-1.2h1.2v-1.2H9.6v1.2zM7.2 21.6h1.2v-1.2H7.2V21.6zM4.8 21.6h1.2v-1.2H4.8V21.6zM2.4 21.6h1.2v-1.2H2.4V21.6zM12 3.84h1.2V2.4H12v1.44zm2.4 1.2h1.2V3.84h-1.2v1.2zM16.8 3.84h1.2V2.4h-1.2v1.44zm2.4 1.2h1.2V3.84h-1.2v1.2zm2.4-1.2h1.2V2.4h-1.2v1.44z" fill="#e70488"></path></svg><span>Pandas</span></div>
+                                <div class="skill-item"><svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>Matplotlib</title><path d="M21.859 19.92H18.32V4.08h3.54zm-4.7-15.84v9.98c0 1.93-1.05 3.19-2.9 3.19h-.4c-.58 0-1.1-.1-1.61-.3l-.53 2.45c.6.22 1.32.33 2.14.33h.4c3.48 0 5.49-2.23 5.49-5.64V4.08h-3.12z" fill="#11557c"></path><circle cx="4.44" cy="19.01" r="2.22" fill="#880000"></circle><path d="M5.68 4.08H2.14v15.84h3.54z" fill="#11557c"></path><circle cx="13.2" cy="4.99" r="2.22" fill="#11557c"></circle><circle cx="18.99" cy="12" r="2.22" fill="#11557c"></circle><circle cx="18.99" cy="4.99" r="2.22" fill="#11557c"></circle><circle cx="18.99" cy="19.01" r="2.22" fill="#11557c"></circle></svg><span>Matplotlib</span></div>
+                                <div class="skill-item"><svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>Seaborn</title><path d="M12.39 5.37a2.43 2.43 0 0 0-2.02 1.06 3.15 3.15 0 0 0-.44 1.76c0 .7.15 1.25.46 1.66.3.4.73.62 1.27.62.9 0 1.57-.65 2-1.92L16.29 5H24v14h-2.58v-4.17c0-2.43-1.38-3.9-3.92-3.9-1.26 0-2.24.46-2.9 1.35a4.01 4.01 0 0 0-1.07 2.89v3.83H11V5.37h1.39zM10.36 1.47a3.17 3.17 0 1 0 0 6.34 3.17 3.17 0 0 0 0-6.34zM0 19h9.17v-2.06H2.58V5h6.59V2.94H0V19z" fill="#377eb8"></path></svg><span>Seaborn</span></div>
+                                <div class="skill-item"><span>Statsmodels</span></div>
+                                <div class="skill-item"><svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>MySQL</title><path d="M12.08 17.58c-1.25 0-2.45-.19-3.57-.56-.16-.05-.28-.18-.3-.34l-.4-3.23c0-.18.08-.34.23-.44l.84-.57c.14-.1.33-.08.45.06l.5.6c.1.13.26.18.42.16 2.02-.33 3.65-1.85 4.14-3.8.1-.4-.05-.83-.4-1.1-.33-.26-1.1-.73-1.1-.73-.2-.14-.24-.4-.1-.6l.6-1.03c.14-.23.43-.3.66-.18 2.53 1.33 4.2 3.93 4.1 6.78-.1 3.2-2.5 5.9-5.63 6.13-.5.04-1 .06-1.5.06z" fill="#00758F"></path><path d="M7.4 17.2c-.37 0-.7-.26-.78-.62l-1.15-5.2c-.06-.3.1-.6.4-.7l3.24-1.1c.3-.1.62.08.72.38l1.16 5.2c.07.3-.1.6-.4.7L7.4 17.2zm5.8-14.33c.36 0 .68.25.77.6l1.37 5.1c.1.33-.08.68-.4.78l-3.24 1.02c-.33.1-.65-.1-.76-.4l-1.37-5.1c-.08-.32.1-.66.42-.75l3.2-1.03z" fill="#F29111"></path><path d="M10.98 16.2c-.1-.08-.26-.06-.33.05l-.5.78c-.08.13-.04.3.08.4l.7.53c.12.08.28.07.38-.03l.6-.6c.1-.1.1-.26 0-.37l-.92-1.76zm-5.78-10.4l1.1-1.02c.12-.1.14-.3.04-.44l-.7-.96c-.1-.14-.28-.2-.44-.1L3.9 4.1c-.2.1-.27.34-.16.53l.6 1.03c.1.18.3.24.47.16z" fill="#00758F"></path></svg><span>MySQL</span></div>
+                            </div>
+                        </div>
+                        <div class="card-base bg-light-navy p-4 rounded-lg border border-slate/30">
+                            <h4 class="text-light-slate font-bold text-md mb-4">Tools</h4>
+                            <div class="flex flex-wrap gap-2">
+                               <div class="skill-item"><svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>GitHub</title><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12" fill="#FFFFFF"></path></svg><span>GitHub</span></div>
+                               <div class="skill-item"><svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>Visual Studio Code</title><path d="M23.15 2.587L18.44 0 15.26 1.584l-3.33-1.584-8.82 4.192v13.626l8.82 4.192 11.23-5.333V7.92L23.15 2.587zM8.08 19.34V8.127l-4.94-2.35v6.52L8.08 19.34zm6.81 2.2L3.14 16.5v-9L14.89 2.4v19.14zm5.07-5.487l-4.59 2.18V5.077l4.59-2.18v14.11z" fill="#007ACC"></path></svg><span>VS Code</span></div>
+                               <div class="skill-item"><svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>Microsoft Excel</title><path d="M22.11 1.5H1.89C1.04 1.5.5 2.04.5 2.88v18.24c0 .85.54 1.38 1.39 1.38h20.22c.84 0 1.39-.53 1.39-1.38V2.88c0-.84-.55-1.38-1.39-1.38zM10.36 6.8h-4.2L3.7 12l2.45 5.2h4.3L7.86 12l2.5-5.2zM19.75 17.5h-3.5v-2.25h2v-2h-2V9.5h3.5v-2h-5.75v10h5.75v-2z" fill="#185C37"></path></svg><span>MS Excel</span></div>
+                               <div class="skill-item"><svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>Power BI</title><path d="M1.2 1.2h10.95v21.6H1.2V1.2zm3.39 2.16v17.28h4.68V3.36H4.59zm8.25 5.04v16.56H22.8V8.4h-9.96zM15.23 10.56h5.4v12.24h-5.4V10.56z" fill="#F2C811"></path></svg><span>Power BI</span></div>
+                               <div class="skill-item"><svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>Jupyter</title><path d="M12.015 22.935c-2.88.01-5.63-1.12-7.66-3.1-2.02-1.97-3.16-4.66-3.19-7.48a10.84 10.84 0 0 1 10.85-10.89 10.84 10.84 0 0 1 10.89 10.84c-.01 2.83-1.15 5.54-3.19 7.52-2.05 1.99-4.8 3.12-7.7 3.11z" fill="#393834"></path><path d="M12.015 2.535a9.84 9.84 0 0 0-9.85 9.85 9.84 9.84 0 0 0 9.85 9.85 9.84 9.84 0 0 0 9.89-9.85 9.84 9.84 0 0 0-9.89-9.85z" fill="#fff"></path><path d="M12.015 15.175a2.53 2.53 0 1 1 0-5.06 2.53 2.53 0 0 1 0 5.06zm-5.06 5.06a2.53 2.53 0 1 1 0-5.06 2.53 2.53 0 0 1 0 5.06zm10.12 0a2.53 2.53 0 1 1 0-5.06 2.53 2.53 0 0 1 0 5.06z" fill="#f37626"></path></svg><span>Jupyter</span></div>
+                            </div>
+                        </div>
+                        <div class="card-base bg-light-navy p-4 rounded-lg border border-slate/30">
+                            <h4 class="text-light-slate font-bold text-md mb-4">Professional</h4>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="skill-item text-xs">Data Cleaning</span>
+                                <span class="skill-item text-xs">EDA</span>
+                                <span class="skill-item text-xs">Dashboarding</span>
+                                <span class="skill-item text-xs">Data Storytelling</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    -->
+        <!-- ===== CERTIFICATIONS SECTION (06) ===== -->
+        <section id="certifications" class="section">
+           <h2 class="text-3xl font-bold text-light-slate flex items-center section-heading"><span class="text-green font-mono mr-3">06.</span> Certifications</h2>
+           <div class="cert-grid grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+               
+               <div class="card-base flex flex-col rounded-md overflow-hidden p-6">
+                   <img src="https://github.com/Kush-Thakral/portfolio-assets/blob/main/NN_DL.jpg?raw=true" alt="Certificate placeholder" class="rounded-md mb-4">
+                   <div class="flex-grow">
+                        <div class="flex justify-between items-start">
+                           <h3 class="text-light-slate font-bold text-xl">Neural Networks and Deep Learning</h3>
+                           <span class="text-xs font-mono text-slate flex-shrink-0 ml-2">Coursera</span>
+                       </div>
+                       <p class="text-sm mt-2">Gained foundational knowledge of neural networks and deep learning.</p>
+                   </div>
+                   <div class="mt-4 pt-4 border-t border-slate/30 text-xs font-mono text-slate">
+                       <span>DeepLearning.AI</span>
+                   </div>
+               </div>
+
+               <div class="card-base flex flex-col rounded-md overflow-hidden p-6">
+                    <img src="https://github.com/Kush-Thakral/portfolio-assets/blob/main/Comp_vision_page-0001.jpg?raw=true" alt="Certificate placeholder" class="rounded-md mb-4">
+                   <div class="flex-grow">
+                        <div class="flex justify-between items-start">
+                           <h3 class="text-light-slate font-bold text-xl">Computer Vision - Image basics with OpenCV and Python</h3>
+                           <span class="text-xs font-mono text-slate flex-shrink-0 ml-2">Coursera</span>
+                       </div>
+                       <p class="text-sm mt-2">Understanding methods for dealing with image data using Python.</p>
+                   </div>
+                    <div class="mt-4 pt-4 border-t border-slate/30 text-xs font-mono text-slate">
+                       <span>Coursera Project Network</span>
+                   </div>
+               </div>               
+
+               <div class="card-base flex flex-col rounded-md overflow-hidden p-6">
+                    <img src="https://github.com/Kush-Thakral/portfolio-assets/blob/main/Sentiment_analysis_page-0001.jpg?raw=true" alt="Certificate placeholder" class="rounded-md mb-4">
+                   <div class="flex-grow">
+                        <div class="flex justify-between items-start">
+                           <h3 class="text-light-slate font-bold text-xl">Sentiment Analysis with Scikit-Learn</h3>
+                           <span class="text-xs font-mono text-slate flex-shrink-0 ml-2">Coursera</span>
+                       </div>
+                       <p class="text-sm mt-2">Explored techniques for analyzing text data using Python.</p>
+                   </div>
+                    <div class="mt-4 pt-4 border-t border-slate/30 text-xs font-mono text-slate">
+                       <span>Coursera Project Network</span>
+                   </div>
+               </div>
+
+               <div class="card-base flex flex-col rounded-md overflow-hidden p-6">
+                   <img src="https://github.com/Kush-Thakral/portfolio-assets/blob/main/struc_ML.jpg?raw=true" alt="Certificate placeholder" class="rounded-md mb-4">
+                   <div class="flex-grow">
+                       <div class="flex justify-between items-start">
+                           <h3 class="text-light-slate font-bold text-xl">Structuring Machine Learning Projects</h3>
+                           <span class="text-xs font-mono text-slate flex-shrink-0 ml-2">Coursera</span>
+                       </div>
+                       <p class="text-sm mt-2">Learned strategies for building effective ML systems.</p>
+                   </div>
+                   <div class="mt-4 pt-4 border-t border-slate/30 text-xs font-mono text-slate">
+                       <span>DeepLearning.AI</span>
+                   </div>
+               </div>
+
+                <div class="card-base flex-col rounded-md overflow-hidden p-6 cert-more">
+                    <img src="https://github.com/Kush-Thakral/portfolio-assets/blob/main/intro_to_NN.jpg?raw=true" alt="Certificate placeholder" class="rounded-md mb-4">
+                   <div class="flex-grow">
+                        <div class="flex justify-between items-start">
+                           <h3 class="text-light-slate font-bold text-xl">Intro to TensorFlow for AI, ML & DL</h3>
+                           <span class="text-xs font-mono text-slate flex-shrink-0 ml-2">Coursera</span>
+                       </div>
+                       <p class="text-sm mt-2">An introduction to the TensorFlow framework for deep learning.</p>
+                   </div>
+                    <div class="mt-4 pt-4 border-t border-slate/30 text-xs font-mono text-slate">
+                       <span>DeepLearning.AI</span>
+                   </div>
+               </div>
+
+               <div class="card-base flex-col rounded-md overflow-hidden p-6 cert-more">
+                   <img src="https://github.com/Kush-Thakral/portfolio-assets/blob/main/Improving%20deep%20NN_page-0001.jpg?raw=true" alt="Certificate placeholder" class="rounded-md mb-4">
+                   <div class="flex-grow">
+                        <div class="flex justify-between items-start">
+                           <h3 class="text-light-slate font-bold text-xl">Improving Deep Neural Networks</h3>
+                           <span class="text-xs font-mono text-slate flex-shrink-0 ml-2">Coursera</span>
+                       </div>
+                       <p class="text-sm mt-2">Learned hyperparameter tuning, regularization, and optimization.</p>
+                   </div>
+                    <div class="mt-4 pt-4 border-t border-slate/30 text-xs font-mono text-slate">
+                       <span>DeepLearning.AI</span>
+                   </div>
+               </div>
+
+           </div>
+            <div class="mt-16 text-center">
+                <button id="toggle-certs-btn" class="show-more-btn font-mono text-green border border-green rounded py-3 px-6 font-bold">Show More</button>
+            </div>
+       </section>
+
+       <!-- ===== CONTACT SECTION (07) ===== -->
+        <section id="contact" class="text-center section">
+            <div>
+                <h2 class="text-lg font-mono text-green mb-2">07. What's Next?</h2>
+                <h3 class="text-5xl font-bold text-light-slate mb-4">Get In Touch</h3>
+                <p class="max-w-xl mx-auto mb-10">
+                    My inbox is always open. Whether you have a question, a project proposal, or just want to say hello, I’ll get back to you!
+                </p>
+                <a href="#" id="open-contact-modal" class="contact-btn font-mono text-green border border-green rounded py-4 px-8">
+                    Say Hello
+                </a>
+            </div>
+        </section>
+
+   </main>
+
+   <footer class="text-center py-6">
+       <p class="font-mono text-sm text-slate/60">Designed & Built by Kushagra Thakral</p>
+   </footer>
+   
+    <!-- ===== CONTACT MODAL ===== -->
+    <div id="contact-modal" class="hidden fixed inset-0 bg-black bg-opacity-70 z-50 items-center justify-center p-4">
+        <div class="bg-light-navy p-8 rounded-lg border border-slate/30 shadow-lg max-w-lg w-full relative card-base">
+            <button id="close-modal-btn" class="absolute top-4 right-4 text-2xl text-slate hover:text-green">&times;</button>
+            <h3 class="text-2xl font-bold text-green mb-6 text-center">Connect With Me</h3>
+            <form action="mailto:kthakral@ch.iitr.ac.in" method="post" enctype="text/plain">
+                <div class="mb-4 relative">
+                    <i class="fas fa-user absolute top-3 left-4 text-slate"></i>
+                    <input type="text" name="name" placeholder="Your Name" required class="w-full bg-navy border border-slate/50 rounded-md py-2 px-3 pl-12 text-light-slate focus:outline-none focus:ring-2 focus:ring-green">
+                </div>
+                <div class="mb-4 relative">
+                    <i class="fas fa-envelope absolute top-3 left-4 text-slate"></i>
+                    <input type="email" name="email" placeholder="Your Email" required class="w-full bg-navy border border-slate/50 rounded-md py-2 px-3 pl-12 text-light-slate focus:outline-none focus:ring-2 focus:ring-green">
+                </div>
+                <div class="mb-4 relative">
+                     <i class="fas fa-pen-to-square absolute top-3 left-4 text-slate"></i>
+                    <input type="text" name="subject" placeholder="Subject" required class="w-full bg-navy border border-slate/50 rounded-md py-2 px-3 pl-12 text-light-slate focus:outline-none focus:ring-2 focus:ring-green">
+                </div>
+                <div class="mb-6">
+                    <textarea name="message" rows="4" placeholder="Message" required class="w-full bg-navy border border-slate/50 rounded-md py-2 px-3 text-light-slate focus:outline-none focus:ring-2 focus:ring-green"></textarea>
+                </div>
+                <div class="text-center">
+                    <button type="submit" class="contact-btn w-full font-mono text-green border border-green rounded py-3 px-4 font-bold">
+                        Message Me
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+   <script>
+       document.addEventListener('DOMContentLoaded', function() {
+
+           // --- Header Scroll Behavior ---
+           var header = document.getElementById('header');
+           var lastScrollY = window.scrollY;
+
+           header.style.transform = 'translateY(-100%)';
+           setTimeout(function() {
+               header.style.transform = 'translateY(0)';
+           }, 100);
+
+           window.addEventListener('scroll', function() {
+               if (window.scrollY > lastScrollY && window.scrollY > 100) {
+                   header.style.transform = 'translateY(-100%)';
+               } else {
+                   header.style.transform = 'translateY(0)';
+               }
+               lastScrollY = window.scrollY;
+           });
+
+           // --- Mobile Menu Toggle ---
+           var menuBtn = document.getElementById('menu-btn');
+           var mobileMenu = document.getElementById('mobile-menu');
+           menuBtn.addEventListener('click', function() {
+               mobileMenu.classList.toggle('hidden');
+           });
+           mobileMenu.addEventListener('click', function(e) {
+                if(e.target.tagName === 'A') {
+                     mobileMenu.classList.add('hidden');
+                }
+           });
+
+           // --- Typing Animation ---
+           var typedTextSpan = document.getElementById("typed-text");
+           var cursorSpan = document.querySelector(".cursor");
+           var textArray = ["analyze data.", "build products.", "develop ML solutions."];
+           var typingDelay = 100;
+           var erasingDelay = 50;
+           var newTextDelay = 2000;
+           var textArrayIndex = 0;
+           var charIndex = 0;
+
+           function type() {
+               if (charIndex < textArray[textArrayIndex].length) {
+                   if (!cursorSpan.classList.contains("typing")) cursorSpan.classList.add("typing");
+                   typedTextSpan.textContent += textArray[textArrayIndex].charAt(charIndex);
+                   charIndex++;
+                   setTimeout(type, typingDelay);
+               } else {
+                   cursorSpan.classList.remove("typing");
+                   setTimeout(erase, newTextDelay);
+               }
+           }
+
+           function erase() {
+               if (charIndex > 0) {
+                   if (!cursorSpan.classList.contains("typing")) cursorSpan.classList.add("typing");
+                   typedTextSpan.textContent = textArray[textArrayIndex].substring(0, charIndex - 1);
+                   charIndex--;
+                   setTimeout(erase, erasingDelay);
+               } else {
+                   cursorSpan.classList.remove("typing");
+                   textArrayIndex++;
+                   if (textArrayIndex >= textArray.length) textArrayIndex = 0;
+                   setTimeout(type, typingDelay + 1100);
+               }
+           }
+
+           if (textArray.length) setTimeout(type, newTextDelay + 250);
+
+           // --- Experience Tabs ---
+           var tabButtons = document.querySelectorAll('.tab-btn');
+           var tabContents = document.querySelectorAll('.tab-content');
+
+           function openTab(tabId) {
+                tabButtons.forEach(function(btn) { 
+                    if(btn.dataset.tab === tabId) {
+                        btn.classList.add('tab-active');
+                    } else {
+                        btn.classList.remove('tab-active');
+                    }
+                });
+
+                tabContents.forEach(function(content) {
+                    if (content.id === 'tab-' + tabId) {
+                        content.classList.remove('hidden');
+                        setTimeout(() => content.classList.add('active'), 10);
+                    } else {
+                        content.classList.add('hidden');
+                        content.classList.remove('active');
+                    }
+                });
+           }
+           
+           tabButtons.forEach(function(button) {
+               button.addEventListener('click', function() {
+                   var tabId = button.dataset.tab;
+                   openTab(tabId);
+               });
+           });
+
+           // --- Internship Links to Tabs ---
+           var internshipLinks = document.querySelectorAll('.internship-link');
+           internshipLinks.forEach(function(link) {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    var tabId = link.dataset.internshipTab;
+                    
+                    var experienceSection = document.getElementById('experience');
+                    experienceSection.scrollIntoView({ behavior: 'smooth' });
+                    
+                    openTab(tabId);
+                });
+           });
+
+
+           // --- Section Fade-in on Scroll ---
+           var sections = document.querySelectorAll('.section');
+           var observerOptions = {
+               root: null,
+               rootMargin: '0px',
+               threshold: 0.1
+           };
+
+           var observer = new IntersectionObserver(function(entries, observer) {
+               entries.forEach(function(entry) {
+                   if (entry.isIntersecting) {
+                       entry.target.classList.add('visible');
+                       observer.unobserve(entry.target);
+                   }
+               });
+           }, observerOptions);
+
+           sections.forEach(function(section) {
+               observer.observe(section);
+           });
+
+            // --- Contact Modal ---
+            var openModalBtn = document.getElementById('open-contact-modal');
+            var closeModalBtn = document.getElementById('close-modal-btn');
+            var contactModal = document.getElementById('contact-modal');
+
+            function showModal() {
+                contactModal.classList.remove('hidden');
+                contactModal.classList.add('flex', 'visible');
+            }
+            function hideModal() {
+                contactModal.classList.remove('visible');
+                contactModal.classList.add('hidden');
+                contactModal.classList.remove('flex');
+            }
+
+            if(openModalBtn) {
+                openModalBtn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    showModal();
+                });
+            }
+
+            if(closeModalBtn) {
+                closeModalBtn.addEventListener('click', hideModal);
+            }
+
+            if(contactModal) {
+                contactModal.addEventListener('click', function(e) {
+                    if (e.target === contactModal) {
+                        hideModal();
+                    }
+                });
+            }
+
+            // --- Show More/Less Projects ---
+            var toggleProjectsBtn = document.getElementById('toggle-projects-btn');
+            var moreProjects = document.querySelectorAll('.project-more');
+            var projectsVisible = false;
+
+            if (toggleProjectsBtn) {
+                toggleProjectsBtn.addEventListener('click', function() {
+                    projectsVisible = !projectsVisible;
+                    moreProjects.forEach(function(project) {
+                        if (projectsVisible) {
+                            project.style.display = 'flex';
+                        } else {
+                            project.style.display = 'none';
+                        }
+                    });
+
+                    if (projectsVisible) {
+                        toggleProjectsBtn.textContent = 'Show Less';
+                    } else {
+                        toggleProjectsBtn.textContent = 'Show More';
+                    }
+                });
+            }
+
+
+            // --- Show More/Less Certifications ---
+            var toggleCertsBtn = document.getElementById('toggle-certs-btn');
+            var moreCerts = document.querySelectorAll('.cert-more');
+            var certsVisible = false;
+            
+            if (toggleCertsBtn) {
+                if (moreCerts.length === 0) {
+                    toggleCertsBtn.style.display = 'none';
+                }
+
+                toggleCertsBtn.addEventListener('click', function() {
+                    certsVisible = !certsVisible;
+                    moreCerts.forEach(function(cert) {
+                        if (certsVisible) {
+                            cert.style.display = 'flex';
+                        } else {
+                            cert.style.display = 'none';
+                        }
+                    });
+
+                    if (certsVisible) {
+                        toggleCertsBtn.textContent = 'Show Less';
+                    } else {
+                        toggleCertsBtn.textContent = 'Show More';
+                    }
+                });
+            }
+
+
+       });
+   </script>
+</body>
+</html>
+
